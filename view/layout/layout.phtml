@@ -13,6 +13,7 @@ if (isset($stylesheet)) {
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/foundation/foundation.min.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->prependFile($this->assetUrl('js/onthesegrounds.js'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->trigger('view.layout');
 $this->jsTranslate();
