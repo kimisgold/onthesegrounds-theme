@@ -12,9 +12,17 @@ $topbar-background: transparent;
 @import 'foundation-core';
 @import 'omeka';
 
-button.accent.primary,
-.button.accent.primary {
+button.accent,
+.button.accent {
     position: relative;
+    background: transparent;
+    margin: (1.5 * $global-margin) 0;
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+
+    &:hover {
+        background: transparent;
+    }
 
     &:before {
         content: "";
@@ -32,7 +40,6 @@ button.accent.primary,
     &:after {
         content: "";
         clip-path: polygon(63% 11%, 96% 26%, 94% 79%, 61% 88%, 15% 86%, 2% 62%, 19% 16%);
-        background: $primary-color;
         display: block;
         position: absolute;
         top: -15px;
@@ -45,23 +52,53 @@ button.accent.primary,
     &:hover:after {
         background-color: darken(saturate($primary-color, 8%), 5%);
     }
+
+    &.primary {
+        color: #fff;
+    }
+
+    &.primary:before {
+        background: $secondary-color;
+    }
+
+    &.primary:after {
+        background: $primary-color;
+    }
+
+    &.secondary:before {
+        background: $tertiary-color;
+    }
+
+    &.secondary:after {
+        background: $primary-color;
+    }
+}
+
+.off-canvas-content {
+    overflow-x: hidden;
+}
+
+// Header
+
+header {
+    padding-bottom: 3 * $global-padding;
 }
 
 .site-title a {
-  position: relative;
-  color: $tertiary-color;
+    position: relative;
+    color: $tertiary-color;
 }
 
 .site-title a:before {
-  content: "";
-  position: absolute;
-  top: -.75rem;
-  left: -.5rem;
-  bottom: -1.5rem;
-  right: -4.5rem;
-  background: $secondary-color;
-  clip-path: polygon(0 0, 100% 0, 88% 54%, 66% 87%, 26% 79%, 0 100%);
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: -1.5rem;
+    left: -.5rem;
+    bottom: -1.5rem;
+    right: -4.5rem;
+    background: $secondary-color;
+    clip-path: polygon(0 0, 100% 0, 88% 54%, 66% 87%, 26% 79%, 0 100%);
+    z-index: -1;
 }
 
 #responsive-menu {
@@ -70,17 +107,178 @@ button.accent.primary,
 }
 
 #responsive-menu:before {
-  content: "";
-  position: absolute;
-  top: -.5rem;
-  left: -4.5rem;
-  bottom: -1.5rem;
-  right: -.5rem;
-  background: $primary-color;
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 75%, 51% 96%, 27% 75%, 6% 79%);
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: -.5rem;
+    left: -4.5rem;
+    bottom: -1.5rem;
+    right: -.5rem;
+    background: $primary-color;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 75%, 51% 96%, 27% 75%, 6% 79%);
+    z-index: -1;
 }
 
 #responsive-menu a {
-  color: $tertiary-color;
+    color: $tertiary-color;
+}
+
+#responsive-menu button.search-toggle {
+    margin-bottom: 0;
+    color: $tertiary-color;
+}
+
+#responsive-menu .search-form {
+    display: none;
+}
+
+#responsive-menu .search-form.open {
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: calc(100% + #{2 * $global-padding});
+}
+
+// Home
+
+@include breakpoint (medium up) {
+    .explore.featured {
+        width: calc(25% - #{$global-margin});
+    }
+
+    .ontology.home.copy {
+        width: calc(60% - #{$global-margin});
+        float: left;
+    }
+}
+
+.ontology.home {
+    position: relative;
+    color: #fff;
+    margin: (2 * $global-margin) 0;
+    
+    &.copy {
+        padding: $global-padding 0;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -9999px;
+        right: -9999px;
+        background-color: $secondary-color;
+        z-index: -2;
+    }
+}
+
+.exhibits.home {
+    margin: (2 * $global-margin) 0;
+}
+
+.exhibits.home.copy {
+    clear: right;
+    width: calc(60% - #{$global-margin});
+    padding: $global-padding;
+    float: right;
+}
+
+.exhibits.home.hero {
+    clear: both;
+}
+
+// Pages 
+
+.page-title {
+    position: relative;
+    z-index: 10;
+
+    h2 {
+        background-color: $primary-color;
+        color: $tertiary-color;
+        padding-right: $global-margin;
+    }
+}
+
+.assets.hero.default {
+  max-height: 30vh;
+  position: relative;
+  z-index: -1;
+}
+
+.assets.hero.default:before {
+  content: "";
+  position: absolute;
+  left: -9999px;
+  right: -9999px;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.yellow.hero:before {
+  background-color: $tertiary-color;
+}
+
+.red.hero:before {
+  background-color: $primary-color;
+}
+
+.purple.hero:before {
+  background-color: $secondary-color;
+}
+
+.page-title,
+.hero .asset {
+  height: 30vh;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero.shape-1 .asset {
+    clip-path: polygon(83% 0, 94% 19%, 100% 65%, 91% 90%, 74% 100%, 17% 100%, 7% 87%, 1% 59%, 2% 13%, 10% 0);
+}
+
+.hero.shape-2 .asset {
+    clip-path: polygon(54% 10%, 85% 0, 95% 21%, 100% 70%, 92% 100%, 56% 88%, 24% 100%, 0 89%, 0 14%, 26% 0);
+}
+
+.hero.shape-3 .asset {
+    clip-path: polygon(7% 0, 26% 9%, 48% 0, 60% 13%, 74% 0, 84% 0%, 100% 21%, 98% 58%, 100% 86%, 89% 100%, 61% 100%, 41% 91%, 24% 100%, 6% 100%, 0% 79%, 1% 23%);
+}
+
+.hero.assets:first-child {
+  height: 30vh;
+  position: relative;
+  z-index: 1;
+  margin-top: -30vh;
+  align-items: center;
+  display: flex;
+  margin-bottom: 2 * $global-margin;
+}
+
+.yellow.hero + h2 .page-title-text {
+    background-color: $tertiary-color;
+}
+
+.red.hero + h2 .page-title-text {
+    background-color: $primary-color;
+    color: #fff;
+}
+
+.purple.hero + h2 .page-title-text {
+    color: #fff;
+    background-color: $secondary-color;
+}
+
+.toc-block {
+    float: left;
+    background-color: transparent;
+}
+
+.toc-block ~ * {
+    max-width: 75%;
+    float: right;
 }

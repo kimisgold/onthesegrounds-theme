@@ -1,6 +1,6 @@
 <?php
 $this->htmlElement('body')->appendAttribute('class', 'page ' . $page->slug());
-$this->pageTitle($page->title(), 2);
+$pageTitle = $this->pageTitle($page->title(), 2);
 $showPagePagination = $this->siteSetting('show_page_pagination', true);
 ?>
 
@@ -14,17 +14,7 @@ if ($activePage):
     <nav class="breadcrumbs"><?php echo $nav->breadcrumbs()->setPartial('common/foundation-breadcrumbs'); ?></nav>
     <?php endif; ?>
 <?php endif; ?>
-
-<?php if ($activePage): ?>
-    <?php if ($this->displayNavigation && $activePage['page']->hasPages()): ?>
-    <nav class="sub-menu wide" data-sticky-container>
-        <div class="sticky" data-sticky data-anchor="blocks">
-            <?php echo $nav->menu()->setUlClass('vertical menu')->renderSubMenu(); ?>
-        </div>
-    </nav>
-    <?php endif; ?>
-<?php endif; ?>
-
+<div class="page-title"><?php echo $pageTitle; ?></div>
 <?php $this->trigger('view.show.before'); ?>
 <div id="blocks" class="blocks">
     <?php echo $this->content; ?>

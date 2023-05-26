@@ -1,0 +1,15 @@
+<?php
+$nav = $this->currentSite()->publicNav();
+$container = $nav->getContainer();
+$activePage = $nav->findActive($container);
+?>
+
+<nav class="toc-block sub-menu wide" data-sticky-container>
+    <div class="sticky" data-sticky data-anchor="blocks">
+    <?php if ($activePage && (!$activePage['page']->hasPages())): ?>
+        <?php echo $nav->menu()->setUlClass('vertical menu')->renderSubMenu(); ?>
+    <?php else: ?>
+        <?php echo $this->navigation($this->subNav)->menu()->setUlClass('vertical menu')->renderMenu(null, ['maxDepth' => $this->maxDepth]); ?>
+    <?php endif; ?>
+    </div>
+</nav>
