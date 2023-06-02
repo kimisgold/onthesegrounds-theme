@@ -286,3 +286,41 @@ body.home .page-title {
     max-width: 75%;
     float: right;
 }
+
+// Visualizations
+
+.visualizations #content {
+    padding-top: 0;
+}
+
+.subhead .hero.assets:first-child {
+    margin-bottom: 0;
+}
+
+.subhead .menu {
+    background-color: $secondary-color;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: -9999px;
+        right: -9999px;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: $secondary-color;
+    }
+
+    .active {
+        font-weight: bold;
+    }
+}
+
+.subhead .menu a {
+    color: $tertiary-color;
+}
+
+.faceted-browse-page .resource-list .resource:first-child {
+    padding-top: 1em;
+}
