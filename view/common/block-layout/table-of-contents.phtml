@@ -2,8 +2,14 @@
 $nav = $this->currentSite()->publicNav();
 $container = $nav->getContainer();
 $activePage = $nav->findActive($container);
+$slug = $block->page()->slug();
 ?>
 
+<?php if ($slug == 'visualizations'): ?>
+<nav class="subhead">
+    <?php echo $this->navigation($this->subNav)->menu()->setUlClass('horizontal menu')->renderMenu(null, ['maxDepth' => $this->maxDepth]); ?>
+</nav>
+<?php else: ?>
 <nav class="toc-block sub-menu wide" data-sticky-container>
     <div class="sticky" data-sticky data-anchor="blocks">
     <?php if ($activePage && (!$activePage['page']->hasPages())): ?>
@@ -13,3 +19,4 @@ $activePage = $nav->findActive($container);
     <?php endif; ?>
     </div>
 </nav>
+<?php endif; ?>
