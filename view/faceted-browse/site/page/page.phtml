@@ -9,7 +9,7 @@ $activePage = $nav->findActive($container);
 
 
 $this->htmlElement('body')->appendAttribute('class', 'faceted-browse-page visualizations resource browse');
-$this->pageTitle($page->title(), 3);
+$pageTitle = $this->pageTitle($page->title(), 2);
 
 $categories = $page->categories();
 $categoryId = null;
@@ -20,17 +20,13 @@ if (1 === count($categories)) {
     $categoryQuery = $category->query();
 }
 ?>
-<div class="page-title"><h2>Visualizations</h2></div>
+<div class="page-title"><?php echo $pageTitle; ?></div>
 <div class="subhead">
     <div class="assets hero yellow default"> </div>
     <?php if ($activePage && (!$activePage['page']->hasPages())): ?>
         <?php echo $nav->menu()->setUlClass('horizontal menu sub-nav')->renderSubMenu(); ?>
     <?php endif; ?>
 </div>
-<ul class="horizontal menu view">
-    <li><a href="#">Default</a></li>
-    <li><a href="#">Table</a></li>
-</ul>
 <div id="container" 
     data-url-categories="<?php echo $this->escapeHtml($this->url(null, ['action' => 'categories'], true)); ?>"
     data-url-facets="<?php echo $this->escapeHtml($this->url(null, ['action' => 'facets'], true)); ?>"
