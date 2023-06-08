@@ -24,9 +24,13 @@ if (1 === count($categories)) {
 <div class="subhead">
     <div class="assets hero yellow default"> </div>
     <?php if ($activePage && (!$activePage['page']->hasPages())): ?>
-        <?php echo $nav->menu()->setUlClass('horizontal menu')->renderSubMenu(); ?>
+        <?php echo $nav->menu()->setUlClass('horizontal menu sub-nav')->renderSubMenu(); ?>
     <?php endif; ?>
 </div>
+<ul class="horizontal menu view">
+    <li><a href="#">Default</a></li>
+    <li><a href="#">Table</a></li>
+</ul>
 <div id="container" 
     data-url-categories="<?php echo $this->escapeHtml($this->url(null, ['action' => 'categories'], true)); ?>"
     data-url-facets="<?php echo $this->escapeHtml($this->url(null, ['action' => 'facets'], true)); ?>"

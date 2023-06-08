@@ -322,6 +322,55 @@ body.home .page-title {
     color: $tertiary-color;
 }
 
+.faceted-browse-page .resource-list {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 0;
+}
+
 .faceted-browse-page .resource-list .resource:first-child {
     padding-top: 1em;
+}
+
+
+.person-header {
+  background-color: $tertiary-color;
+  border-bottom: 1px solid #ccc;
+}
+
+.life-row {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+}
+
+.life-row .date {
+  width: 50%;
+}
+
+.sex:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.sex.female:before {
+    content: "\f221";
+}
+
+.sex.male:before {
+    content: "\f222";
+}
+
+.faceted-browse-page .resource-list .person.resource {
+    border: 1px solid #ccc;
+    width: 49%;
+    border-radius: 2px;
+}
+
+.faceted-browse-page .resource-list .person.resource:first-child {
+    padding-top: 0;
+}
+
+.faceted-browse-page .resource-list .person.resource > div {
+    padding: .5 * $global-padding;
 }
