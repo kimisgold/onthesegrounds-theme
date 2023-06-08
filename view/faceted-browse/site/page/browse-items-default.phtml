@@ -14,10 +14,9 @@ $bodyTerm = $this->siteSetting('browse_body_property_term');
         'OTG Single Class Event Record' => 'event'
     ];
     ?>
-        <?php if (isset($resourceTemplate)): ?>
+        <?php if (isset($resourceTemplate) && ($resourceTemplate->label() == 'OTG Person Record')): ?>
             <?php $resourceTemplateLabel = $resourceTemplate->label(); ?>
             <li class="item resource <?php echo $itemClass[$resourceTemplateLabel]; ?>">
-            <?php if ($resourceTemplateLabel == 'OTG Person Record'): ?>
                 <div class="person-header">
                     <?php $sexValue = strtolower($item->value('otgevents:sex')); ?>
                     <?php echo $item->linkPretty('square', $heading); ?>
@@ -32,9 +31,6 @@ $bodyTerm = $this->siteSetting('browse_body_property_term');
                     <span class="death date">Death: <?php echo (isset($deathDate)) ? $deathDate : '-'; ?></span>
                 </div>
                 <div class="description"><?php echo $this->escapeHtml($body); ?></div>
-            <?php elseif ($resourceTemplateLabel == 'OTG Place Record'): ?>
-            <?php elseif ($resourceTemplateLabel == 'OTG Single ClassEvent Record'): ?>
-            <?php endif; ?>
         <?php else: ?>
             <li class="item resource">
                 <?php echo $item->linkPretty('square', $heading); ?>
