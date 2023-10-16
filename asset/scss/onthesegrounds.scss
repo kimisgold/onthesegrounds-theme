@@ -218,6 +218,13 @@ header {
     float: right;
 }
 
+@include breakpoint(small down) {
+    .exhibits.home.copy {
+        width: 100%;
+        float: none;
+    }
+}
+
 .exhibits.home.hero {
     clear: both;
 }
@@ -236,6 +243,14 @@ body.home .page-title {
         background-color: $primary-color;
         color: $tertiary-color;
         padding-right: $global-margin;
+    }
+}
+
+@include breakpoint (small down) {
+    .assets.left,
+    .assets.right {
+        max-width: 100%;
+        float: none;
     }
 }
 
