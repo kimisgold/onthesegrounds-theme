@@ -337,6 +337,20 @@ body.home .page-title {
     float: right;
 }
 
+@include breakpoint(small down) {
+    .toc-block ~ * {
+        max-width: 100%;
+        float: none;
+    }
+
+    .wide.sub-menu a {
+        padding-left: $global-padding;
+        padding-right: $global-padding;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
 // Visualizations
 
 .visualizations #content {
