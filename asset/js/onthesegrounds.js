@@ -1,13 +1,18 @@
 (function($) {
     $(document).ready(function() {
-        $('#responsive-menu').on('click', '.search-toggle', function() {
-            var searchToggle = $(this);
-            $('#responsive-menu .search-form').toggleClass('open');
-            if (searchToggle.attr('aria-expanded') == 'true') {
-                searchToggle.attr('aria-expanded', 'false');
-            } else {
-                searchToggle.attr('aria-expanded', 'true');
-            }
-        });
+        var enableToggle = function (container, toggleSelector, drawerContent) {
+            $(container).on('click', toggleSelector, function() {
+                var toggleButton = $(this);
+                $(drawerContent).toggleClass('open');
+                if (toggleButton.attr('aria-expanded') == 'true') {
+                    toggleButton.attr('aria-expanded', 'false');
+                } else {
+                    toggleButton.attr('aria-expanded', 'true');
+                }
+            });
+        };
+
+        enableToggle('#responsive-menu', '.search-toggle', '#responsive-menu .search-form');
+        enableToggle('#container', '.filter-toggle, #section-sidebar .close-button', '#section-sidebar');
     });
 })(jQuery)

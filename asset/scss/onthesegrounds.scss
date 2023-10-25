@@ -397,6 +397,60 @@ body.home .page-title {
     padding-top: 1em;
 }
 
+.filter-toggle {
+    @include hide-for(medium up);
+}
+
+#section-sidebar button.close-button {
+    @include hide-for(medium up);
+    font-size: $global-font-size;
+    background-color: transparent;
+}
+
+.close-glyph:before {
+    content: "\f00d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+@include breakpoint(small down) {
+    .faceted-browse-page #container {
+        flex-wrap: wrap;
+    }
+
+    .faceted-browse-page #section-sidebar,
+    .faceted-browse-page #section-content {
+        width: 100%;
+    }
+
+    .faceted-browse-page #section-sidebar {
+        display: none;
+
+        &.open {
+            display: block;
+            position: fixed;
+            top: $global-margin;
+            left: $global-margin;
+            right: $global-margin;
+            bottom: $global-margin;
+            padding: $global-padding;
+            background-color: #fff;
+            z-index: 999;
+            max-width: calc(100% - #{2 * $global-margin});
+        }
+
+        &.open + #section-content:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.75);
+            z-index: 998;
+        }
+    }
+}
 
 .person-header {
   background-color: $tertiary-color;
