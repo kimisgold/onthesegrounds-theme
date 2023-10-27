@@ -36,6 +36,6 @@ if (1 === count($categories)) {
     data-category-id="<?php echo $this->escapeHtml($categoryId); ?>"
     data-category-query="<?php echo $this->escapeHtml($categoryQuery); ?>">
     <button type="button" class="filter-toggle modal-toggle"><?php echo $this->translate('Filters'); ?></button>
-    <div id="section-sidebar" class="mobile modal-panel"></div>
+    <div id="section-sidebar" class="mobile modal-panel" aria-describedby="facet-modal-description"></div>
     <div id="section-content" class="mobile modal-content"></div>
 </div>

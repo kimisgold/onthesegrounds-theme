@@ -31,6 +31,7 @@
             $(listenerSelector).on('toggle', modalSelector, function() {
                 if (modal.attr('aria-hidden') == 'false') {
                     mainContent.attr('aria-hidden', 'true');
+                    modal.find('.close-button').focus();
                 } else {
                     mainContent.attr('aria-hidden', 'false');
                 }
