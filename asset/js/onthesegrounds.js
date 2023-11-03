@@ -3,6 +3,9 @@
         const mediaQuery = window.matchMedia('(min-width: 896px)');
 
         var handleTabletChange = function(e) {
+            $('.modal-toggle').attr('aria-expanded', 'false');
+            $('.modal-panel').attr('aria-hidden', 'true').removeClass('open');
+            console.log($('.modal-panel').attr('aria-hidden'));
             if (e.matches) {
                 $('.mobile.modal-panel, .mobile.modal-content').attr('aria-hidden', 'false');
                 $('.modal-toggle').attr('aria-expanded', 'false');
@@ -25,23 +28,37 @@
             });
         };
 
-        var enableModal = function(listenerSelector, mainContentSelector, modalSelector) {
+
+        var enableModal = function(listenerSelector, mainContentSelector, modalSelector, toggleButtonSelector) {
             var mainContent = $(mainContentSelector);
             var modal = $(modalSelector);
+            var toggleButton = $(toggleButtonSelector);
+            var lastFocus;
+
+            modal.on('click', '.close-button', function() {
+                lastFocus.trigger('click').trigger('focus');
+            });
+
             $(listenerSelector).on('toggle', modalSelector, function() {
+                var closeButton = modal.find('.close-button');
                 if (modal.attr('aria-hidden') == 'false') {
                     mainContent.attr('aria-hidden', 'true');
-                    modal.find('.close-button').trigger("focus");
+                    closeButton.trigger('focus');
+                    lastFocus = toggleButton;
                 } else {
                     mainContent.attr('aria-hidden', 'false');
+                    lastFocus.trigger('focus');
+                    lastFocus = closeButton;
                 }
             });
+
         };
 
-        enableToggle('#responsive-menu', '.search-toggle', '#responsive-menu .search-form');
-        enableToggle('#container', '.filter-toggle, #section-sidebar .close-button', '#section-sidebar');
 
-        enableModal('#container', '#section-content', '#section-sidebar');
+        enableToggle('#responsive-menu', '.search-toggle', '#responsive-menu .search-form');
+        enableToggle('#container', '.filter-toggle', '#section-sidebar');
+
+        enableModal('#container', '#section-content', '#section-sidebar', '#section-sidebar-modal-toggle');
 
         mediaQuery.addListener(handleTabletChange);
         handleTabletChange(mediaQuery);
