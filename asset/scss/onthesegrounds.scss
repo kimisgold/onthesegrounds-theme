@@ -337,6 +337,11 @@ body.home .page-title {
     float: right;
 }
 
+.toc-block ~ ul {
+    margin-left: 0;
+    padding-right: 1rem;
+}
+
 @include breakpoint(small down) {
     .toc-block ~ * {
         max-width: 100%;
