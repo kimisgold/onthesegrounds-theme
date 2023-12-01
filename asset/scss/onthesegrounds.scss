@@ -254,13 +254,13 @@ body.home .page-title {
     }
 }
 
-.assets.hero.default {
+.hero.default .assets {
   max-height: 30vh;
   position: relative;
   z-index: -1;
 }
 
-.assets.hero.default:before {
+.hero .assets:before {
   content: "";
   position: absolute;
   left: -9999px;
@@ -270,15 +270,15 @@ body.home .page-title {
   z-index: -1;
 }
 
-.yellow.hero:before {
+.yellow.hero .assets:before {
   background-color: $tertiary-color;
 }
 
-.red.hero:before {
+.red.hero .assets:before {
   background-color: $primary-color;
 }
 
-.purple.hero:before {
+.purple.hero .assets:before {
   background-color: $secondary-color;
 }
 
@@ -303,7 +303,7 @@ body.home .page-title {
     clip-path: polygon(7% 0, 26% 9%, 48% 0, 60% 13%, 74% 0, 84% 0%, 100% 21%, 98% 58%, 100% 86%, 89% 100%, 61% 100%, 41% 91%, 24% 100%, 6% 100%, 0% 79%, 1% 23%);
 }
 
-.hero.assets:first-child {
+.hero .assets:first-child {
   height: 30vh;
   position: relative;
   z-index: 1;
