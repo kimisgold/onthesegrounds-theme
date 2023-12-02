@@ -343,9 +343,17 @@ body.home .page-title {
 }
 
 @include breakpoint(small down) {
+    .toc-block {
+        margin: $global-margin 0 !important;
+        padding: 0;
+    }
+
     .toc-block ~ * {
-        max-width: 100%;
+        width: 100%;
         float: none;
+    }
+
+    .wide.sub-menu {
     }
 
     .wide.sub-menu a {
