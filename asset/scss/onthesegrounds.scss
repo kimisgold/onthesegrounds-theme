@@ -339,7 +339,7 @@ body.home .page-title {
 
 .toc-block ~ ul {
     margin-left: -1rem;
-    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 @include breakpoint(small down) {
