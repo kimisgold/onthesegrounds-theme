@@ -5,7 +5,7 @@ $navDepthSetting = $this->themeSetting('nav_depth');
 ?>
 
 <?php if ($navDepthSetting == 0 || $level <= $navDepthSetting):?>
-<ul class="menu vertical nested">
+<ul class="menu nested">
 	<?php foreach ($children as $child): ?>
 		<?php $hasChildren = $child->hasPages() ?>
 		<?php if (!$this->navigation()->accept($child)) continue; ?>
