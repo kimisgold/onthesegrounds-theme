@@ -351,10 +351,9 @@ body.home .page-title {
     .toc-block ~ * {
         width: 100%;
         float: none;
+        clear: both;
     }
 
-    .wide.sub-menu {
-    }
 
     .wide.sub-menu a {
         padding-left: $global-padding;
@@ -496,7 +495,12 @@ body.home .page-title {
     border: 1px solid #ccc;
     width: 49%;
     border-radius: 2px;
+
+    @include breakpoint(small down) {
+        width: 100%;
+    }
 }
+
 
 .faceted-browse-page .resource-list .person.resource:first-child {
     padding-top: 0;
