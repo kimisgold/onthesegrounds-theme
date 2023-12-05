@@ -260,6 +260,14 @@ body.home .page-title {
   z-index: -1;
 }
 
+.hero.background-position-y-bottom .asset {
+  align-content: flex-end;
+}
+
+.hero.background-position-y-top .asset {
+  align-content: flex-start;
+}
+
 .hero .assets:before {
   content: "";
   position: absolute;
@@ -354,6 +362,9 @@ body.home .page-title {
         clear: both;
     }
 
+    .wide.sub-menu {
+        width: 100%;
+    }
 
     .wide.sub-menu a {
         padding-left: $global-padding;
@@ -448,7 +459,6 @@ body.home .page-title {
             padding: $global-padding;
             background-color: #fff;
             z-index: 999;
-            max-width: calc(100% - #{2 * $global-margin});
         }
 
         &.open + #section-content:before {
