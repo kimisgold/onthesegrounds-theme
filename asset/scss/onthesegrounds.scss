@@ -96,6 +96,15 @@ header {
     header {
         padding-bottom: 1.5 * $global-padding;
     }
+
+    .vertical.menu li a {
+        min-height: 40px;
+    }
+
+    .menu .active a ~ button {
+        background-color: $primary-color;
+        color: $tertiary-color;
+    }
 }
 
 .site-title a {
