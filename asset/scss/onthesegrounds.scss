@@ -92,6 +92,12 @@ header {
     padding-bottom: 3 * $global-padding;
 }
 
+@include breakpoint(small down) {
+    header {
+        padding-bottom: 1.5 * $global-padding;
+    }
+}
+
 .site-title a {
     position: relative;
     color: $tertiary-color;
@@ -299,6 +305,10 @@ body.home .page-title {
   align-content: center;
 }
 
+.page-title h2 {
+    margin-bottom: 0;
+}
+
 .hero.shape-1 .asset {
     clip-path: polygon(83% 0, 94% 19%, 100% 65%, 91% 90%, 74% 100%, 17% 100%, 7% 87%, 1% 59%, 2% 13%, 10% 0);
 }
@@ -333,6 +343,27 @@ body.home .page-title {
 .purple.hero + h2 .page-title-text {
     color: #fff;
     background-color: $secondary-color;
+}
+
+@include breakpoint(small down) {
+    .page-title {
+        height: 15vh;
+    }
+
+    body:not(.page) .page-title {
+        overflow: visible;
+    }
+
+    body:not(.page) .page-title:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -9999px;
+        right: -9999px;
+        z-index: -1;
+        background-color: $tertiary-color;
+    }
 }
 
 .toc-block {
