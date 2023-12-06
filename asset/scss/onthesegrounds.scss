@@ -101,7 +101,7 @@ header {
         min-height: 40px;
     }
 
-    .menu .active a ~ button {
+    .menu .active > a ~ button {
         background-color: $primary-color;
         color: $tertiary-color;
     }
@@ -489,7 +489,6 @@ body.home .page-title {
 }
 
 @include breakpoint(small down) {
-
     .btn-micro.right,
     .btn-micro.left {
         max-width: none;
