@@ -338,6 +338,18 @@ body.home .page-title {
   align-items: center;
   display: flex;
   margin-bottom: 2 * $global-margin;
+  z-index: 0;
+}
+
+@include breakpoint(small down) {
+    .hero .assets:first-child {
+        height: 15vh;
+        margin-top: -15vh;
+    }
+
+    .hero + .subhead {
+        margin-top: -2 * $global-margin;
+    }
 }
 
 .yellow.hero + h2 .page-title-text {
