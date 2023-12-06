@@ -489,6 +489,12 @@ body.home .page-title {
 }
 
 @include breakpoint(small down) {
+
+    .btn-micro.right,
+    .btn-micro.left {
+        max-width: none;
+    }
+
     .faceted-browse-page #container {
         flex-wrap: wrap;
     }
