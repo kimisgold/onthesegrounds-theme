@@ -312,6 +312,10 @@ body.home .page-title {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+
+  @include breakpoint(small down) {
+    height: 15vh;
+  }
 }
 
 .page-title h2 {
