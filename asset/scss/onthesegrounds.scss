@@ -8,6 +8,8 @@
 
 $header-font-weight: 700;
 $topbar-background: transparent;
+$dropdownmenu-arrow-color: $tertiary-color;
+$dropdown-menu-item-background-active: $primary-color;
 
 @import 'foundation-core';
 @import 'omeka';
@@ -90,6 +92,10 @@ button.accent,
 
 header {
     padding-bottom: 3 * $global-padding;
+}
+
+.menu .is-active > a {
+    background-color: transparent;
 }
 
 @include breakpoint(small down) {
@@ -180,6 +186,11 @@ header {
     right: -.625rem;
     z-index: -1;
     clip-path: polygon(0 0, 100% 0, 80% 100%, 50% 94%, 27% 75%, 6% 79%);
+}
+
+.top-bar ul ul {
+    background-color: $secondary-color;
+    border-color: transparent;
 }
 
 @include breakpoint (small down) {
