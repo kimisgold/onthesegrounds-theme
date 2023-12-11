@@ -265,7 +265,8 @@ body:not(.page) .page-title {
     margin-bottom: 2 * $global-margin;
 }
 
-body:not(.page) .page-title:before {
+body:not(.page) .page-title:before,
+.resource-title:before {
     content: "";
     background-color: $tertiary-color;
     position: absolute;
@@ -276,14 +277,21 @@ body:not(.page) .page-title:before {
     z-index: -1;
 }
 
-.page-title {
+.page-title,
+.resource-title {
     position: relative;
     z-index: 10;
+    justify-content: space-between;
 
-    h2 {
+    h2,
+    h3 {
         background-color: $primary-color;
         color: $tertiary-color;
-        padding-right: $global-margin;
+        padding: 0 $global-margin;
+    }
+
+    h3 {
+        break-before: always;
     }
 }
 
@@ -332,6 +340,7 @@ body:not(.page) .page-title:before {
 }
 
 .page-title,
+.resource-title,
 .hero .asset {
   height: 30vh;
   display: flex;

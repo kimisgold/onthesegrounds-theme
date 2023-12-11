@@ -53,8 +53,10 @@ $sortHeadings = [
 ?>
 
 <?php if ($itemSetShow): ?>
-    <?php echo $this->pageTitle($itemSet->displayTitle(null, ($filterLocale ? $lang : null)), 2); ?>
-    <h3><?php echo $translate('Item set'); ?></h3>
+    <div class="page-title">
+        <?php echo $this->pageTitle($itemSet->displayTitle(null, ($filterLocale ? $lang : null)), 2); ?>
+        <h3><?php echo $translate('Item set'); ?></h3>
+    </div>
     <div class="<?php echo ($showLayout == 'inline') ? 'inline' : 'stack'; ?>">
         <?php if ($fullWidthMainHasBlocks): ?>
         <div class="full-width-main">
