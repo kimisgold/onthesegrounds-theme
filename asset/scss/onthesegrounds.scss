@@ -261,6 +261,21 @@ body.home .page-title {
 
 // Pages 
 
+body:not(.page) .page-title {
+    margin-bottom: 2 * $global-margin;
+}
+
+body:not(.page) .page-title:before {
+    content: "";
+    background-color: $tertiary-color;
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
 .page-title {
     position: relative;
     z-index: 10;
@@ -319,7 +334,6 @@ body.home .page-title {
 .page-title,
 .hero .asset {
   height: 30vh;
-  overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
